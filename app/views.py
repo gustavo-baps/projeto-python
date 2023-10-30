@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
+from .models import Admin
+import hashlib
 
 def home(request):
     return render(request, 'home.html')
@@ -9,37 +11,47 @@ def home(request):
 def create(request):
     return render(request, 'create.html')
 
-def store(request):
-    data = {}
-    if(request.POST['password'] != request.POST['password-conf']):
-        data['msg'] = 'Senhas não coincidem'
-        data['class'] = 'alert-danger'
-    else:
-        user = User.objects.create_user(request.POST['name'], request.POST['email'], request.POST['password'])
-        user.first_name = request.POST['name']
-        user.save()
-        data['msg'] = 'Usuário cadastrado'
-        data['class'] = 'alert-success'
-    return render(request, 'create.html', data)
+
 
 def painel(request):
     return render(request, 'painel.html')
 
 def dologin(request):
-    user = authenticate(username=request.POST['user'], password=request.POST['password'])
-    data = {}
-    if user is not None:
-        login(request, user)
-        return redirect('/dashboard/')
-    else:
-        data['msg'] = 'Usuário ou senha inválidos'
-        data['class'] = 'alert-danger'
-        return render(request, 'painel.html', data)
+    user = request.POST.get('user')
+    password = request.POST.get('password')
+
+    try:
+        admin = Admin.objects.get(user=user)
+
+        if admin.password == hashlib.md5(password.encode()).hexdigest():
+            request.session['id'] = admin.id
+            print(admin.id)
+            print(admin.user)
+            print(admin.password)
+            return redirect('/dashboard/')
+    except Admin.DoesNotExist:
+        print('erro')
+    data = {
+        'msg':'Usuário ou senha inválidos',
+        'class': 'alert-danger'
+    }
+    return render(request, 'painel.html', data)
     
 def dashboard(request):
-    return render(request, 'dashboard/home.html')
-
+    if is_authenticated(request):
+        return render(request, 'dashboard/home.html')
+    else:
+        return redirect('/painel/')
+    
 def logouts(request):
     logout(request)
     return redirect('/painel/')
 
+def is_authenticated(request):
+    if 'id' in request.session:
+        try:
+            admin = Admin.objects.get(id=request.session['id'])
+            return True
+        except Admin.DoesNotExist:
+            return False
+    return False
