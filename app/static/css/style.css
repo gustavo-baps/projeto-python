@@ -1,3 +1,6 @@
 body{
-    background: red;
+    background: #151515;
+    background-image: url('https://i.ibb.co/d2wkYnX/imagem-legal.png');
+    background-repeat: no-repeat;
+    background-size: cover;
 }

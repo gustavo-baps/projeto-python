@@ -11,7 +11,7 @@ def home(request):
 def create(request):
     return render(request, 'create.html')
 
-
+#user: admin, senha: 123
 
 def painel(request):
     return render(request, 'painel.html')
