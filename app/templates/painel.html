@@ -7,9 +7,21 @@
     <title>Login</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter&family=Raleway&family=Tinos&display=swap" rel="stylesheet">
 </head>
-<body>
+<body id="body1">
     {% block content %}
+    <header id="headerLogin">
+        <div id="quadradoPreto">
+            <img src="https://i.ibb.co/Bsr33SX/rugal-autopecas.png" alt="">
+        </div>
+        <div id="bemVindo">
+            <h1>Bem-vindo ao sistema da Oficina Rugal</h1>
+        </div>
+    </header>
+    <h1 id="facaLogin">Faça o Login para prosseguir*</h1>
     <form name="form-painel" id="formPainel" method="POST" action="/dologin/">
         <div class="col-6 mt-4 m-auto">
             {% if msg %}
@@ -21,12 +33,13 @@
             {% csrf_token %}
 
            
-            <input class="form-control mt-4" type="text" name="user" id="user" placeholder="Nome do usuário: ">
-            <input class="form-control mt-4" type="password" name="password" id="password" placeholder="Senha: ">
+            <input id="input" class="form-control mt-4" type="text" name="user" id="user" placeholder="Usuário">
+            <input id="input" class="form-control mt-4" type="password" name="password" id="password" placeholder="Senha">
             
-            <input class="btn btn-dark mt-4" type="submit" value="Entrar">
+            <input id="botaoEntrar" class="btn btn-dark mt-4" type="submit" value="Entrar">
         </div>
     </form>
+    <footer id="pé"><p>*Informações de Login são confidenciais. A divulgação das mesmas viola o artigo 157 do código da Rugal Enterprise© e pode ocasionar em eventual demissão e privação de liberdade.</p></footer>
     {% endblock %}
 </body>
 </html>
