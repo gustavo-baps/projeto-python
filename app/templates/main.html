@@ -7,9 +7,68 @@
     <title>Oficina Rugal</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&family=Raleway&family=Tinos&display=swap" rel="stylesheet">
 </head>
-<body>
-    {% block content %}
-    {% endblock %}
+<body id="bodyMain">
+    <header>
+        <div id="headerDiv">
+            <div id="logoHeader">
+                <img src="https://i.ibb.co/LhgzRZK/rugal-autopecas-preto.png" alt="">
+            </div>
+            <div id="linhasHeader">
+                <div id="linha1Header" style="display: flex;">
+                    <p>Oficina Rugal - Sistema</p>
+                    <p style="margin-left: 15vw;"><a href="">Mecânicos</a></p>
+                    <p><a href="">Equipe</a></p>
+                    <div id="admin" style="margin-left: 33vw; display: flex;">
+                        <p>admin</p>
+                        <img src="https://i.ibb.co/YTjrWwS/usuario-do-circulo-1.png" alt="">
+                    </div>
+                </div>
+                <div id="linha2Header">
+                    <p>Dashboard</p>
+                </div>
+            </div>
+        </div> 
+    </header>
+    <div id="navMain" style="display: flex;">
+        <nav>
+            <div id="negocios" style="display: flex;">
+                <img src="https://i.ibb.co/C502yR0/imagem-2023-11-06-215727156.png" alt="">
+                <p><a href="">Dashboard</a></p>
+            </div>
+            <div id="negocios" style="display: flex;">
+                <img src="https://i.ibb.co/Jmn4VKD/imagem-2023-11-06-220410672.png" alt="">
+                <p><a href="">Veículos</a></p>
+            </div>
+            <div id="negocios" style="display: flex;">
+                <img src="https://i.ibb.co/Tvy3Cyb/imagem-2023-11-06-220443762.png" alt="">
+                <p><a href="">Peças</a></p>
+            </div>
+            <div id="negocios" style="display: flex;">
+                <img src="https://i.ibb.co/Y2sVhYJ/imagem-2023-11-06-220507588.png" alt="">
+                <p><a href="">Ordens</a></p>
+            </div>
+            <div id="negocios" style="display: flex;">
+                <img src="https://i.ibb.co/HrpDg41/imagem-2023-11-06-220535557.png" alt="">
+                <p><a href="">Serviços</a></p>
+            </div>
+            <div id="negocios" style="display: flex;">
+                <img src="https://i.ibb.co/WnhPFZj/imagem-2023-11-06-220621627.png" alt="">
+                <p><a href="">Clientes</a></p>
+            </div>
+            <div id="negocios" style="display: flex;">
+                <img src="https://i.ibb.co/ZzS7w6n/imagem-2023-11-06-220653250.png" alt="">
+                <p><a href="">Orçamentos</a></p>
+            </div>  
+        </nav>
+        <main>
+            {% block content %}
+            {% endblock %}
+        </main> 
+    </div>
+    
+    <footer style="height: 3.264vw;width: 100%; background-color: black;"></footer>
 </body>
 </html>
