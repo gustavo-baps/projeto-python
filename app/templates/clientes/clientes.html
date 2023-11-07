@@ -1,0 +1,13 @@
+{% extends 'main.html' %}
+
+{% block content %}
+    <ul style="color: white;">
+        {% for cliente in clientes %}
+        <li>{{cliente.nome}}
+        <li>{{cliente.sobrenome}}
+        <li>{{cliente.endereco}}
+        <li>{{cliente.telefone}}  
+        {% endfor %}
+    </ul>
+    <a href="/addcliente/">adicionar cliente</a>
+{% endblock %}

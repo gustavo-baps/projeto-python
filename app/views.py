@@ -2,14 +2,14 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
-from .models import Admin
+from .models import Admin, Cliente
 import hashlib
 
 def home(request):
     return render(request, 'home.html')
 
 def create(request):
-    return render(request, 'create.html')
+    return render(request, 'painel.html')
 
 #user: admin, senha: 123
 
@@ -55,3 +55,7 @@ def is_authenticated(request):
         except Admin.DoesNotExist:
             return False
     return False
+
+def clientes(request):
+    clientes = Cliente.objects.all()
+    return render(request, 'clientes/clientes.html', {'clientes': clientes})
