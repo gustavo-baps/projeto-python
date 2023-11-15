@@ -1,0 +1,13 @@
+{% extends 'main.html' %}
+
+{% block header_text %}
+    <p>Adicionar uma peça</p>
+{% endblock %}
+
+{% block content %}
+    <form id="formCadastrar" action="" method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <a href="/pecas/"><button id="botaoCadastrar" type="submit" class="btn btn-primary">Cadastrar</button></a>
+    </form>
+{% endblock %}

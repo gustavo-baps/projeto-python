@@ -1,0 +1,29 @@
+{% extends 'main.html' %}
+
+{% block header_text %}
+    <p style="margin-left: 2vw;">Ordens de Serviço</p>
+{% endblock %}
+
+{% block content %}
+    <div id="clientes">
+        {% for ordem in ordens %}
+        <div id="cliente">
+            <p><strong>Nº: </strong>{{ordem.id}}</p>
+            <p><strong>Cliente: </strong>{{ordem.cliente.nome}}</p>
+            <p><strong>Veiculo: </strong>{{ordem.carro.modelo}}</p>
+            <p><strong>Serviços: </strong>{% for servico in ordem.servicos.all %}
+                                            {{ servico.nome }},
+                                          {% endfor %}</p>
+            <p><strong>Peças: </strong>{% for peca in ordem.pecas.all %}
+                                            {{ peca.nome }},
+                                          {% endfor %}</p>
+            <p><strong>Equipe: </strong>{{ordem.equipe.nome}}</p>
+            <p><strong>Data de emissão: </strong>{{ordem.data}}</p>
+            <p><strong>Concluir até: </strong>{{ordem.dataconclusao}}</p>
+            <a style="color: blue;" href="{% url 'ordem' ordem.id %}">Ver mais</a>
+            <a href="{% url 'deleteordem' ordem.id %}">Excluir</a>
+        </div>
+        {% endfor %}
+        <a href="/addordem/"><div id="addcliente"><img src="https://i.ibb.co/m8cND62/imagem-2023-11-15-134830153.png" alt=""></div></a>
+    </div>
+{% endblock %}

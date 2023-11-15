@@ -1,0 +1,21 @@
+{% extends 'main.html' %}
+
+{% block header_text %}
+    <p>Mecânicos</p>
+{% endblock %}
+
+{% block content %}
+    <div id="clientes">
+        {% for mecanico in mecanicos %}
+        <div id="cliente">
+            <p><strong>Nome: </strong>{{mecanico.nome}}</p>
+            <p><strong>Sobrenome: </strong>{{mecanico.sobrenome}}</p>
+            <p><strong>Endereço: </strong>{{mecanico.endereco}}</p>
+            <p><strong>Especialidade: </strong>{{mecanico.especialidade}}</p>
+            <p><strong>Equipe: </strong>{{mecanico.equipe}}</p>  
+            <a href="{% url 'deletemecanico' mecanico.id %}">Excluir</a>
+        </div>
+        {% endfor %}
+        <a href="/addmecanico/"><div id="addcliente"><img src="https://i.ibb.co/m8cND62/imagem-2023-11-15-134830153.png" alt=""></div></a>
+    </div>
+{% endblock %}

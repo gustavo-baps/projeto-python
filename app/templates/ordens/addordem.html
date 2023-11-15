@@ -1,0 +1,13 @@
+{% extends 'main.html' %}
+
+{% block header_text %}
+    <p>Adicionar uma OS</p><p style="font-size: 1vw; color: white;">Dica: segure shift e clique para selecionar mais de um serviço ou peça</p>
+{% endblock %}
+
+{% block content %}
+    <form id="formCadastrar" action="" method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <a href="/ordens/"><button id="botaoCadastrar" type="submit" class="btn btn-primary">Cadastrar</button></a>
+    </form>
+{% endblock %}

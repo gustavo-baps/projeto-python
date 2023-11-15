@@ -19,15 +19,17 @@
             <div id="linhasHeader">
                 <div id="linha1Header" style="display: flex;">
                     <p>Oficina Rugal - Sistema</p>
-                    <p style="margin-left: 15vw;"><a href="">Mecânicos</a></p>
-                    <p><a href="">Equipe</a></p>
+                    <p style="margin-left: 15vw;"><a href="/mecanicos/">Mecânicos</a></p>
+                    <p><a href="/equipes/">Equipes</a></p>
                     <div id="admin" style="margin-left: 33vw; display: flex;">
                         <p>admin</p>
                         <img src="https://i.ibb.co/YTjrWwS/usuario-do-circulo-1.png" alt="">
                     </div>
                 </div>
                 <div id="linha2Header">
-                    <p>Dashboard</p>
+                    {% block header_text %}
+                        <p>Dashboard</p>
+                    {% endblock %}
                 </div>
             </div>
         </div> 
@@ -36,23 +38,23 @@
         <nav>
             <div id="negocios" style="display: flex;">
                 <img src="https://i.ibb.co/C502yR0/imagem-2023-11-06-215727156.png" alt="">
-                <p><a href="">Dashboard</a></p>
+                <p><a href="/dashboard/">Dashboard</a></p>
             </div>
             <div id="negocios" style="display: flex;">
                 <img src="https://i.ibb.co/Jmn4VKD/imagem-2023-11-06-220410672.png" alt="">
-                <p><a href="">Veículos</a></p>
+                <p><a href="/carros/">Veículos</a></p>
             </div>
             <div id="negocios" style="display: flex;">
                 <img src="https://i.ibb.co/Tvy3Cyb/imagem-2023-11-06-220443762.png" alt="">
-                <p><a href="">Peças</a></p>
+                <p><a href="/pecas/">Peças</a></p>
             </div>
             <div id="negocios" style="display: flex;">
                 <img src="https://i.ibb.co/Y2sVhYJ/imagem-2023-11-06-220507588.png" alt="">
-                <p><a href="">Ordens</a></p>
+                <p><a href="/ordens/">Ordens</a></p>
             </div>
             <div id="negocios" style="display: flex;">
                 <img src="https://i.ibb.co/HrpDg41/imagem-2023-11-06-220535557.png" alt="">
-                <p><a href="">Serviços</a></p>
+                <p><a href="/servicos/">Serviços</a></p>
             </div>
             <div id="negocios" style="display: flex;">
                 <img src="https://i.ibb.co/WnhPFZj/imagem-2023-11-06-220621627.png" alt="">
@@ -64,11 +66,16 @@
             </div>  
         </nav>
         <main>
+            {% if msg %}
+                <div class="alert {{class}}">
+                    {{msg}}
+                </div>
+            {% endif %}
             {% block content %}
             {% endblock %}
         </main> 
     </div>
     
-    <footer style="height: 3.264vw;width: 100%; background-color: black;"></footer>
+    <footer style="height: 3.264vw; width: 100%; background-color: black;"></footer>
 </body>
 </html>

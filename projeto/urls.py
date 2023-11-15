@@ -16,14 +16,36 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from app.views import home, painel, dologin, dashboard, logouts, clientes
+from app.views import home, painel, dologin, dashboard, logouts, clientes, addcliente, deletecliente, equipes, addequipe, deleteequipe, mecanicos, addmecanico, deletemecanico, carros, addcarro, deletecarro, pecas, addpeca, deletepeca, servicos, addservico, deleteservico, ordens, addordem, deleteordem, ordem
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home),
+    path('', painel),
     path('painel/', painel),
     path('dologin/', dologin),
     path('dashboard/', dashboard),
     path('logouts/', logouts),
-    path('clientes/', clientes)
+    path('clientes/', clientes),
+    path('addcliente/', addcliente),
+    path('deletecliente/<int:cliente_id>/', deletecliente, name='deletecliente'),
+    path('equipes/', equipes),
+    path('addequipe/', addequipe),
+    path('deleteequipe/<int:equipe_id>/', deleteequipe, name="deleteequipe"),
+    path('mecanicos/', mecanicos),
+    path('addmecanico/', addmecanico),
+    path('deletemecanico/<int:mecanico_id>/', deletemecanico, name="deletemecanico"),
+    path('carros/', carros),
+    path('addcarro/', addcarro),
+    path('deletecarro/<int:carro_id>/', deletecarro, name="deletecarro"),
+    path('deletemecanico/<int:mecanico_id>/', deletemecanico, name="deletemecanico"),
+    path('pecas/', pecas),
+    path('addpeca/', addpeca),
+    path('deletepeca/<int:peca_id>/', deletepeca, name="deletepeca"),
+    path('servicos/', servicos),
+    path('addservico/', addservico),
+    path('deleteservico/<int:servico_id>/', deleteservico, name="deleteservico"),
+    path('ordens/', ordens),
+    path('addordem/', addordem),
+    path('deleteordem/<int:ordem_id>/', deleteordem, name="deleteordem"),
+    path('ordem/<int:ordem_id>', ordem, name="ordem")
 ]

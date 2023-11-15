@@ -1,0 +1,19 @@
+{% extends 'main.html' %}
+
+{% block header_text %}
+    <p>Serviços</p>
+{% endblock %}
+
+{% block content %}
+    <div id="clientes">
+        {% for servico in servicos %}
+        <div id="cliente">
+            <p><strong>Nome: </strong>{{servico.nome}}</p>
+            <p><strong>Valor: </strong>{{servico.preco}}</p>
+            <p><strong>Código: </strong>{{servico.id}}</p>
+            <a href="{% url 'deleteservico' servico.id %}">Excluir</a>
+        </div>
+        {% endfor %}
+        <a href="/addservico/"><div id="addcliente"><img src="https://i.ibb.co/m8cND62/imagem-2023-11-15-134830153.png" alt=""></div></a>
+    </div>
+{% endblock %}

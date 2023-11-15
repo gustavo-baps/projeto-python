@@ -118,6 +118,7 @@ body{
     height: 2.9vw;
     background-color: #D6D6D6;
     padding: 0.45vw;
+    z-index: 10;
 }
 #linha2Header p{
     font-size: 1.3vw;
@@ -127,7 +128,7 @@ body{
 nav{
     background-color: #111111;
     width: 14.9vw;
-    height: 44.7vw;
+    height: auto;
     padding: 2vw;
     box-shadow: 0.2vw 0vw 0.1vw 0vw rgba(0, 0, 0, 0.25);
 
@@ -146,4 +147,89 @@ nav{
     font-size: 1.3vw;
     text-decoration: none;
     color: white;
+}
+#clientes{
+    justify-content: flex-start;
+    align-items: flex-start;
+    display: flex;
+    flex-wrap: wrap;
+    color: black;
+    width: 97%;
+    margin-left: 3vw;
+}
+#cliente{
+    width: 15vw;
+    height: auto;
+    background-color: #CBCBCB;
+    border-radius: 0.2vw;
+    padding: 0.5vw;
+    margin-right: 3vw;
+    margin-bottom: 2vw;
+}
+#cliente a{
+    text-decoration: none;
+    font-size: 1vw;
+    color: rgb(211, 0, 0);
+    opacity: 0.8;
+    transition: 0.4s;
+    font-weight: 700;
+}
+#cliente a:hover{
+    opacity: 1;
+}
+#cliente p{
+    font-size: 1.05vw;
+}
+#addcliente{
+    width: 15vw;
+    height: 13.7vw;
+    background-color: #CBCBCB;
+    margin-right: 3.5vw;
+    border-radius: 0.2vw;
+    opacity: 0.5;
+    transition: transform 0.4s;
+    padding: 4.3vw;
+}
+#addcliente:hover{
+    transform: scale(1.04);
+}
+#addcliente img{
+    width: 6.4vw;
+    margin-top: -0.5vw;
+}
+#formCadastrar{
+    margin-left: 3vw;
+    font-size: 1.4vw;
+    font-weight: 700;
+}
+#formCadastrar p{
+    margin-bottom: 2vw;
+}
+#formCadastrar label{
+    color: white;
+    margin-right: 1vw;
+}
+#formCadastrar input{
+    height: 1.8vw;
+}
+#botaoCadastrar{
+    color: white;
+    background-color: #636363;
+    border-radius: 0.3vw;
+    border: none;
+    width: 8.6vw;
+    font-weight: 700;
+}
+#nota{
+    z-index: -1;
+    margin-top: -3.2vw;
+    width: 36vw;
+    height: auto;
+    background-color: white;
+    margin-left: 4vw;
+    padding: 1vw;
+    margin-bottom: 5vw;
+}
+#conteudo h1{
+    font-size: 1.7vw;
 }

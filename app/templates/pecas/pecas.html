@@ -1,0 +1,18 @@
+{% extends 'main.html' %}
+
+{% block header_text %}
+    <p>Peças</p>
+{% endblock %}
+
+{% block content %}
+    <div id="clientes">
+        {% for peca in pecas %}
+        <div id="cliente">
+            <p><strong>Nome: </strong>{{peca.nome}}</p>
+            <p><strong>Preço: </strong>{{peca.preco}}</p>
+            <a href="{% url 'deletepeca' peca.id %}">Excluir</a>
+        </div>
+        {% endfor %}
+        <a href="/addpeca/"><div id="addcliente"><img src="https://i.ibb.co/m8cND62/imagem-2023-11-15-134830153.png" alt=""></div></a>
+    </div>
+{% endblock %}
