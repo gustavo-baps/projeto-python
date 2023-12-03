@@ -12,6 +12,7 @@
             <p><strong>Valor: </strong>{{servico.preco}}</p>
             <p><strong>Código: </strong>{{servico.id}}</p>
             <a href="{% url 'deleteservico' servico.id %}">Excluir</a>
+            <a style="color: blue;" href="{% url 'editservico' servico.id %}">Editar</a>
         </div>
         {% endfor %}
         <a href="/addservico/"><div id="addcliente"><img src="https://i.ibb.co/m8cND62/imagem-2023-11-15-134830153.png" alt=""></div></a>

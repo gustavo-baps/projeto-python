@@ -12,9 +12,8 @@
             <p><strong>Modelo: </strong>{{carro.modelo}}</p>
             <p><strong>Placa: </strong>{{carro.placa}}</p>
             <p><strong>Proprietario: </strong>{{carro.cliente}}</p>
-            <p><strong>Equipe: </strong>{{carro.equipe}}</p> 
-            <p><strong>Defeito: </strong>{{carro.defeito}}</p> 
             <a href="{% url 'deletecarro' carro.id %}">Excluir</a>
+            <a style="color: blue;" href="{% url 'editcarro' carro.id %}">Editar</a>
         </div>
         {% endfor %}
         <a href="/addcarro/"><div id="addcliente"><img src="https://i.ibb.co/m8cND62/imagem-2023-11-15-134830153.png" alt=""></div></a>

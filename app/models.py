@@ -47,8 +47,6 @@ class Carro(models.Model):
     modelo = models.CharField(max_length=45, blank=False)
     placa = models.CharField(max_length=45, blank=False, unique=True)
     cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
-    equipe = models.ForeignKey(Equipe, on_delete=models.SET_NULL, null=True)
-    defeito = models.CharField(max_length=255, blank=False)
 
     def __str__(self):
         return self.modelo + " " + self.placa
@@ -56,10 +54,24 @@ class Carro(models.Model):
 class Ordem(models.Model):
     cliente = models.ForeignKey(Cliente, on_delete=models.SET_NULL, null=True)
     carro = models.ForeignKey(Carro, on_delete=models.SET_NULL, null=True)
-    servicos = models.ManyToManyField(Servico)
-    pecas = models.ManyToManyField(Peca)
+    defeito = models.CharField(max_length=255, blank=False)
+    servicos = models.ManyToManyField(Servico, blank=True)
+    pecas = models.ManyToManyField(Peca, blank=True)
     equipe = models.ForeignKey(Equipe, on_delete=models.SET_NULL, null=True)
     data = models.DateField(blank=False)
     dataconclusao = models.DateField(blank=False)
+    totalvenda = models.DecimalField(max_digits=10, decimal_places=2, default=0)
+    debito = models.DecimalField(max_digits=10, decimal_places=2, default=0)
+    concluida = models.BooleanField(default=False)
 
-    
+    def update_totals(self):
+        total_peca_cost = sum(peca.preco for peca in self.pecas.all())
+        self.debito = total_peca_cost
+
+        self.save()
+    def update_venda(self):
+        preco_total = sum(peca.preco for peca in self.pecas.all())
+        preco_total_servico = sum(servico.preco for servico in self.servicos.all())
+        self.totalvenda = preco_total + preco_total_servico
+        self.save()
+        return self.totalvenda

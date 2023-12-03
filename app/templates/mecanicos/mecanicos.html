@@ -14,6 +14,7 @@
             <p><strong>Especialidade: </strong>{{mecanico.especialidade}}</p>
             <p><strong>Equipe: </strong>{{mecanico.equipe}}</p>  
             <a href="{% url 'deletemecanico' mecanico.id %}">Excluir</a>
+            <a style="color: blue;" href="{% url 'editmecanico' mecanico.id %}">Editar</a>
         </div>
         {% endfor %}
         <a href="/addmecanico/"><div id="addcliente"><img src="https://i.ibb.co/m8cND62/imagem-2023-11-15-134830153.png" alt=""></div></a>

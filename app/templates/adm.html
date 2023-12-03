@@ -21,14 +21,10 @@
                     <p>Oficina Rugal - Sistema</p>
                     <p style="margin-left: 15vw;"><a href="/mecanicos/">Mecânicos</a></p>
                     <p><a href="/equipes/">Equipes</a></p>
-                    <div id="admin" style="margin-left: 33vw; display: flex;">
-                        <a href="/adm/"><p>admin</p></a>
-                        <img src="https://i.ibb.co/YTjrWwS/usuario-do-circulo-1.png" alt="">
-                    </div>
                 </div>
                 <div id="linha2Header">
                     {% block header_text %}
-                        <p>Dashboard</p>
+                        <p>Admin</p>
                     {% endblock %}
                 </div>
             </div>
@@ -68,11 +64,14 @@
                 </div>
             {% endif %}
             {% block content %}
+                <div id="adminAdmin">
+                    <img src="https://i.ibb.co/KFs2m2w/imagem-2023-12-03-112814569.png" alt="">
+                    <h3>admin</h3>
+                </div>
             {% endblock %}
         </main> 
     </div>
     
-    <footer style="height: 3.264vw; width: 100%; background-color: black;">
-    </footer>
+    <footer style="height: 3.264vw; width: 100%; background-color: black;"><p style="color: white;">*Essa ação não pode ser desfeita</p></footer>
 </body>
 </html>

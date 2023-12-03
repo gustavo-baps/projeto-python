@@ -1,0 +1,13 @@
+{% extends 'main.html' %}
+
+{% block header_text %}
+    <p>Editar um carro</p>
+{% endblock %}
+
+{% block content %}
+    <form id="formCadastrar" action="" method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <a href="/carros/"><button id="botaoCadastrar" type="submit" class="btn btn-primary">Salvar</button></a>
+    </form>
+{% endblock %}

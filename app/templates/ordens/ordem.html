@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block content %}
-    <div id="nota">
+    <div id="nota" style="margin-top: -2vw;">
         <div id="conteudo" class="row">
             <div class="col-12" style="display: flex;">
                 <h1 style="margin-right: 13vw;"><strong>Nº: </strong>{{ordem.id}}</h1>
@@ -17,6 +17,9 @@
             </div>
             <div class="col-12" style="margin-top: 1vw;">
                 <p mar><strong>Endereço: </strong>{{ordem.cliente.endereco}}</p>
+            </div>
+            <div class="col-12" style="margin-top: 1vw;">
+                <p mar><strong>Defeito: </strong>{{ordem.defeito}}</p>
             </div>
             <div class="col-12" style="display: flex; margin-top: 1vw;">
                 <p><strong>Veículo: </strong>{{ordem.carro.modelo}}</p>

@@ -11,6 +11,7 @@
             <p><strong>Nome: </strong>{{peca.nome}}</p>
             <p><strong>Preço: </strong>{{peca.preco}}</p>
             <a href="{% url 'deletepeca' peca.id %}">Excluir</a>
+            <a style="color: blue;" href="{% url 'editpeca' peca.id %}">Editar</a>
         </div>
         {% endfor %}
         <a href="/addpeca/"><div id="addcliente"><img src="https://i.ibb.co/m8cND62/imagem-2023-11-15-134830153.png" alt=""></div></a>

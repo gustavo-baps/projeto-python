@@ -7,23 +7,51 @@
 {% block content %}
     <div id="clientes">
         {% for ordem in ordens %}
-        <div id="cliente">
-            <p><strong>Nº: </strong>{{ordem.id}}</p>
-            <p><strong>Cliente: </strong>{{ordem.cliente.nome}}</p>
-            <p><strong>Veiculo: </strong>{{ordem.carro.modelo}}</p>
-            <p><strong>Serviços: </strong>{% for servico in ordem.servicos.all %}
-                                            {{ servico.nome }},
-                                          {% endfor %}</p>
-            <p><strong>Peças: </strong>{% for peca in ordem.pecas.all %}
-                                            {{ peca.nome }},
-                                          {% endfor %}</p>
-            <p><strong>Equipe: </strong>{{ordem.equipe.nome}}</p>
-            <p><strong>Data de emissão: </strong>{{ordem.data}}</p>
-            <p><strong>Concluir até: </strong>{{ordem.dataconclusao}}</p>
-            <a style="color: blue;" href="{% url 'ordem' ordem.id %}">Ver mais</a>
-            <a href="{% url 'deleteordem' ordem.id %}">Excluir</a>
-        </div>
+            {% if not ordem.concluida %}
+                <div id="cliente">
+                    <p><strong>Nº: </strong>{{ordem.id}}</p>
+                    <p><strong>Cliente: </strong>{{ordem.cliente.nome}}</p>
+                    <p><strong>Veiculo: </strong>{{ordem.carro.modelo}}</p>
+                    <p><strong>Serviços: </strong>{% for servico in ordem.servicos.all %}
+                                                    {{ servico.nome }},
+                                                {% endfor %}</p>
+                    <p><strong>Peças: </strong>{% for peca in ordem.pecas.all %}
+                                                    {{ peca.nome }},
+                                                {% endfor %}</p>
+                    <p><strong>Equipe: </strong>{{ordem.equipe.nome}}</p>
+                    <p><strong>Data de emissão: </strong>{{ordem.data}}</p>
+                    <p><strong>Concluir até: </strong>{{ordem.dataconclusao}}</p>
+                    <p><strong>Concluida: </strong>{% if not ordem.concluida %} Não {% endif %}</p>
+                    <a style="color: blue;" href="{% url 'ordem' ordem.id %}">Ver mais</a>
+                    <a href="{% url 'deleteordem' ordem.id %}">Excluir</a>
+                    <a style="color: blue;" href="{% url 'editordem' ordem.id %}">Editar</a>
+                </div>
+            {% endif %}
         {% endfor %}
         <a href="/addordem/"><div id="addcliente"><img src="https://i.ibb.co/m8cND62/imagem-2023-11-15-134830153.png" alt=""></div></a>
+    </div>
+    
+    <h2 style="margin: 3vw; color: white; font-weight: 700;">Ordens concluídas</h2>
+    <div id="concluidas">
+        {% for ordem in ordens %}
+            {% if ordem.concluida %}
+                <div id="cliente">
+                    <p><strong>Nº: </strong>{{ordem.id}}</p>
+                    <p><strong>Cliente: </strong>{{ordem.cliente.nome}}</p>
+                    <p><strong>Veiculo: </strong>{{ordem.carro.modelo}}</p>
+                    <p><strong>Serviços: </strong>{% for servico in ordem.servicos.all %}
+                                                    {{ servico.nome }},
+                                                {% endfor %}</p>
+                    <p><strong>Peças: </strong>{% for peca in ordem.pecas.all %}
+                                                    {{ peca.nome }},
+                                                {% endfor %}</p>
+                    <p><strong>Equipe: </strong>{{ordem.equipe.nome}}</p>
+                    <p><strong>Data de emissão: </strong>{{ordem.data}}</p>
+                    <p><strong>Concluir até: </strong>{{ordem.dataconclusao}}</p>
+                    <a style="color: blue;" href="{% url 'ordem' ordem.id %}">Ver mais</a>
+                    <a style="color: blue;" href="{% url 'editordem' ordem.id %}">Editar</a>
+                </div>
+            {% endif %}
+        {% endfor %}
     </div>
 {% endblock %}

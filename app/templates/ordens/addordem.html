@@ -1,7 +1,7 @@
 {% extends 'main.html' %}
 
 {% block header_text %}
-    <p>Adicionar uma OS</p><p style="font-size: 1vw; color: white;">Dica: segure shift e clique para selecionar mais de um serviço ou peça</p>
+    <p>Adicionar uma OS</p><p style="font-size: 1vw; color: white;"><strong>Dica: segure shift e clique para selecionar mais de um serviço ou peça</strong></p>
 {% endblock %}
 
 {% block content %}
@@ -10,4 +10,27 @@
         {{form.as_p}}
         <a href="/ordens/"><button id="botaoCadastrar" type="submit" class="btn btn-primary">Cadastrar</button></a>
     </form>
+    <script>
+        function filtercarros() {
+          var clienteSelect = document.getElementById('id_cliente');
+          var carroSelect = document.getElementById('id_carro');
+          var selectedCliente = clienteSelect.options[clienteSelect.selectedIndex].value;
+          
+          if (selectedCliente) {
+            fetch('/filtercarros/' + selectedCliente + '/')
+              .then(response => response.json())
+              .then(data => {
+                carroSelect.innerHTML = '<option value="">---------</option>';
+                data.forEach(carro => {
+                  var option = document.createElement('option');
+                  option.value = carro.id;
+                  option.text = carro.modelo + ' ' + carro.placa;
+                  carroSelect.appendChild(option);
+                });
+              });
+          } else {
+            carroSelect.innerHTML = '<option value="">---------</option>';
+          }
+        }
+      </script>
 {% endblock %}

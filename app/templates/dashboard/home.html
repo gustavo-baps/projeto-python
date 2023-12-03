@@ -1,9 +1,14 @@
 {% extends 'main.html' %}
 
 {% block content %}
-    <div id="dashboardContainer">
+    <div id="dashboardContainer" style="display: flex;">
         <div id="dashDiv">
-            <p></p>
+            <h2>R$ {{total_ganhos}}</h2>
+            <p>Vendas do mês</p> 
+        </div>
+        <div id="dashDiv2">
+            <h2>R$ {{total_debito}}</h2>
+            <p>Despesas do mês</p> 
         </div>
     </div>
 {% endblock %}
