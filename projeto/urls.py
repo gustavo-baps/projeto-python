@@ -16,6 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
 from app.views import home, painel, dologin, dashboard, logouts, clientes, addcliente, deletecliente, editcliente, equipes, addequipe, deleteequipe, editequipe, mecanicos, addmecanico, deletemecanico, editmecanico, carros, addcarro, deletecarro, editcarro, pecas, addpeca, deletepeca, editpeca, servicos, addservico, deleteservico, editservico, ordens, addordem, deleteordem, editordem, ordem, filtercarros, adm
 
 urlpatterns = [
@@ -58,3 +60,5 @@ urlpatterns = [
     path('filtercarros/<int:cliente_id>/', filtercarros, name='filtercarros'),
     path('adm/', adm)
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
