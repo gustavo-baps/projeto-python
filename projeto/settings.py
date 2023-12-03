@@ -76,15 +76,13 @@ WSGI_APPLICATION = 'projeto.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'mecanicadois',
-        'HOST': 'localhost',
-        'USER': 'root',
-        'PASSWORD': '',  
-        'PORT': '3306',
-        'OPTIONS': {
-            'init_command':'SET default_storage_engine=InnoDB'
-        }
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'URL': 'postgresql://postgres:1-bb1FfFe3ADAbAaG4*5BGg3G2ADcDaG@monorail.proxy.rlwy.net:53740/railway',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': '1-bb1FfFe3ADAbAaG4*5BGg3G2ADcDaG',
+        'HOST': 'monorail.proxy.rlwy.net',
+        'PORT': 53740,
     }
 }
 

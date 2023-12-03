@@ -126,7 +126,7 @@ def editequipe(request, equipe_id):
             form.save()
             return redirect('/equipes/')
     else:
-        form = CarroForm(instance = equipe)
+        form = EquipeForm(instance = equipe)
     context = {'form': form}
     return render(request, 'equipes/editequipe.html', context)
 
