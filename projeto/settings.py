@@ -84,12 +84,12 @@ WSGI_APPLICATION = 'projeto.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'URL': 'postgresql://postgres:1-bb1FfFe3ADAbAaG4*5BGg3G2ADcDaG@monorail.proxy.rlwy.net:53740/railway',
+        'URL': 'postgresql://postgres:b45deG53dC-2b5--F34ECEc4afc1FA6C@roundhouse.proxy.rlwy.net:43080/railway',
         'NAME': 'railway',
         'USER': 'postgres',
-        'PASSWORD': '1-bb1FfFe3ADAbAaG4*5BGg3G2ADcDaG',
-        'HOST': 'monorail.proxy.rlwy.net',
-        'PORT': 53740,
+        'PASSWORD': 'b45deG53dC-2b5--F34ECEc4afc1FA6C',
+        'HOST': 'roundhouse.proxy.rlwy.net',
+        'PORT': 43080,
     }
 }
 
