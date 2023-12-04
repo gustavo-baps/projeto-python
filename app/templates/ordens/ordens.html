@@ -28,7 +28,7 @@
                 </div>
             {% endif %}
         {% endfor %}
-        <a href="/addordem/"><div id="addcliente"><img src="https://i.ibb.co/m8cND62/imagem-2023-11-15-134830153.png" alt=""></div></a>
+        <a href="/addordem/"><div id="addcliente"><img src="https://i.ibb.co/wKPprcd/imagem-2023-12-04-185253565.png" alt=""></div></a>
     </div>
     
     <h2 style="margin: 3vw; color: white; font-weight: 700;">Ordens concluídas</h2>
@@ -47,7 +47,6 @@
                                                 {% endfor %}</p>
                     <p><strong>Equipe: </strong>{{ordem.equipe.nome}}</p>
                     <p><strong>Data de emissão: </strong>{{ordem.data}}</p>
-                    <p><strong>Concluir até: </strong>{{ordem.dataconclusao}}</p>
                     <a style="color: blue;" href="{% url 'ordem' ordem.id %}">Ver mais</a>
                     <a style="color: blue;" href="{% url 'editordem' ordem.id %}">Editar</a>
                 </div>

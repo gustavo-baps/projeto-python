@@ -27,9 +27,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-mhk(pei6ph2^8hp#^i9d-o(0%h1fn0(8vzv6h^@%$=pupd&=fh'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv('DJANGO_DEBUG', 'False') == 'True'
+DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+
+CSRF_TRUSTED_ORIGINS = ['https://*.onrender.com','https://*.127.0.0.1']
+ALLOWED_HOSTS = ['oficina-rugal2.onrender.com']
+CSRF_COOKIE_SECURE = False
+SESSION_COOKIE_SECURE = False
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']  
